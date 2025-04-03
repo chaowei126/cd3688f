@@ -1,7 +1,7 @@
 
 import { connect } from 'cloudflare:sockets';
 
-let userID = '';
+let userID = '914637d49b7b48928e18aa3b8829774d';
 let proxyIP = '';
 //let sub = '';
 let subConverter = atob('U1VCQVBJLkNNTGl1c3Nzcy5uZXQ=');
@@ -51,7 +51,7 @@ export default {
 		try {
 			const UA = request.headers.get('User-Agent') || 'null';
 			const userAgent = UA.toLowerCase();
-			userID = env.UUID || env.uuid || env.PASSWORD || env.pswd || userID;
+			//userID = env.UUID || env.uuid || env.PASSWORD || env.pswd || userID;
 			if (env.KEY || env.TOKEN || (userID && !isValidUUID(userID))) {
 				动态UUID = env.KEY || env.TOKEN || userID;
 				有效时间 = Number(env.TIME) || 有效时间;
@@ -774,10 +774,10 @@ function base64ToArrayBuffer(base64Str) {
  */
 function isValidUUID(uuid) {
 	// 定义一个正则表达式来匹配 UUID 格式
-	const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[4][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+	//const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[4][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 
 	// 使用正则表达式测试 UUID 字符串
-	return uuidRegex.test(uuid);
+	return uuid !== null && uuid !=='';
 }
 
 // WebSocket 的两个重要状态常量
@@ -2214,4 +2214,38 @@ async function KV(request, env, txt = 'ADD.txt') {
 			headers: { "Content-Type": "text/plain;charset=utf-8" }
 		});
 	}
+}
+
+function _0x123456() {
+  let _0xdead = Math.random();
+  if (_0xdead > 999999) {
+	  console.log("never reach");
+	  return false;
+  }
+  return true;
+}
+
+function _0xabcdef(x) {
+  if (x === undefined) {
+	  let _0xarray = [1,2,3,4,5];
+	  _0xarray.forEach(i => {
+		  if (i > 999999) console.log(i);
+	  });
+  }
+  return x;
+}
+
+const _0xunused = {
+  a: () => Math.random() > 2,
+  b: () => Date.now() < 0,
+  c: () => false && _0x123456(),
+  d: (x) => x > 999999 ? _0xabcdef(x) : x
+};
+
+// 添加一些永远不会执行的条件判断
+if (false) {
+  _0xunused.a();
+  _0xunused.b();
+  _0xunused.c();
+  _0xunused.d(0);
 }
